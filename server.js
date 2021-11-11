@@ -7,7 +7,6 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
-server.listen(port);
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
