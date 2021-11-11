@@ -1,9 +1,13 @@
-console.log('Hello from node.js...');
-
+// Server Start
 const http = require('http');
 
 const hostname = '127.0.0.1';
-const port = process.env.PORT || 3000;
+//const port = process.env.PORT || 3000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+server.listen(port);
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
