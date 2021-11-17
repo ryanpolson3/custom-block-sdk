@@ -4,7 +4,7 @@
   "description": "Marketing Cloud: Custom Block_SDK Package",
   "author": "Ryan Olson",
   "license": "ISC",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "webpack-dev-server --entry .src/scripts/app.js --output-filename ./dist/#",
     "build:eleventy": "npx @11ty/eleventy",
