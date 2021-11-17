@@ -1,0 +1,24 @@
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+        <td style="text-align: center;padding: 20px 10px 10px;">
+            <img alt="{{ imageAlt }}" border="0" height="230" src="{{ imageSrc }}"
+                style="max-width: 230px; height: 230px; background: #DDDDDD; font-family: Arial, sans-serif; font-size: 15px; line-height: 15px; color: #555555; padding: 0px; text-align: center; width: 230px;"
+                width="230"></td>
+    </tr>
+    <tr>
+        <td class="center-on-narrow"
+            style="font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; color: #555555; text-align: left;padding: 10px 40px 40px;">
+            <h3
+                style="font-size: 18px; font-weight: 300; line-height: 28px; font-family: Arial, sans-serif; color:#171717; margin: 5px 0 5px 0;">
+                {{ title }}</h3>
+            <p
+                style="font-size: 14px; line-height: 24px; font-family: Arial, sans-serif; color:#565656;margin: 0 0 10px;">
+                {{ brand }} | {{ sku }}</p><span style="font-size: 11px; display: block;">List
+                Price</span>
+            <p
+                style="font-size: 18px; font-weight: bold; line-height: 24px; font-family: Arial, sans-serif; color:#565656;margin: 0 0 15px;">
+                {{ price }}</p>
+            {% if buttonUrl and buttonText %}{% include 'button.liquid'%}{% endif %}
+        </td>
+    </tr>
+</table>

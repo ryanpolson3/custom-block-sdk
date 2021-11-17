@@ -1,0 +1,85 @@
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+        <td
+            style="padding: 20px 20px; font-family: Arial, sans-serif;; font-size: 15px; line-height: 24px; color: #555555;">
+            <h2
+                style="font-weight: lighter; font-size: 26px; line-height: 32px; font-family: Arial, sans-serif; color:#171717; margin: 5px 0 10px 0;">
+                {{ title }}</h2>
+            <p
+                style="font-size: 16px; line-height: 24px; font-family: Arial, sans-serif; color:#565656;margin: 0 0 15px;">
+                {{ description }}</p>
+        </td>
+    </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+        <!--%%[ 
+            var @rows, @row, @rowCount, @numRowsToReturn, @region, @i, @email
+            set @email = [emailaddr]
+            set @region = AttributeValue("Region") /* value from attribute or DE column in send context */ 
+            set @region = "North" /* or a literal value */ 
+            set @numRowsToReturn = 0 /* 0 means all, max 2000 */ 
+            set @rows = LookupOrderedRows('BullseyeProductsPersonalized',2,"Rank asc","Email",@email) 
+            set @rowCount = rowcount(@rows)
+
+            IF @rowCount < 1 THEN
+            set @rows = LookupOrderedRows('BullseyeProductsPersonalizedFallback',2,"Rank asc","Email","fallback@fleetpride.com")
+            set @rowCount = rowcount(@rows)
+            ENDIF
+
+            for @i = 1 to @rowCount do 
+            var @rank, @prodURL, @pdpURL, @pdpImageURL, @prodImgURL, @brand, @sku, @price, @emailId, @emailName, @cpURL
+            set @emailId = _emailId
+            set @emailName = emailName_
+            set @row = row(@rows, @i) /* get row based on counter */ 
+            set @rank = field(@row,"Rank") 
+            set @prodName = field(@row,"ProductName") 
+            set @prodURL = field(@row,"ProductURL") 
+            set @prodImgURL = field(@row,"ProductImageURL")
+            set @pdpURL = concat(@prodURL,"?utm_source=sfmc_email&utm_medium=email&utm_campaign=",@emailName,"&utm_content=bullseye-cta-view-product")
+            set @pdpImageURL = concat(@prodURL,"?utm_source=sfmc_email&utm_medium=email&utm_campaign=",@emailName,"&utm_content=bullseye-image-product-link")
+            set @cpURL = concat(CloudPagesURL(324),"&utm_source=sfmc_email&utm_medium=email&utm_campaign=",@emailName,"&utm_content=bullseye-cta-see-more")
+            set @brand = field(@row,"Manufacturer") 
+            set @sku = field(@row,"DisplayPartNumber") 
+            set @priceAmount = field(@row,"ProductPrice")]
+            IF @priceAmount > 0 THEN
+            set @price = concat("$", @priceAmount)
+            ELSE
+            set @price = concat("See your price")
+            ENDIF
+
+            ]%%-->
+        <!-- Column : BEGIN -->
+        <!--%%[ IF @i < @rowCount then ]%%-->
+        <th class="stack-column-center" style="border-right: 1px solid lightgray;" valign="top" width="50%">
+            <!--%%[ ELSE ]%%-->
+        </th>
+        <!-- Column : BEGIN -->
+        <!-- Column : END -->
+        <th class="stack-column-center" valign="top" width="50%">
+            <!--%%[ ENDIF ]%%-->
+            {% include 'product-grid-card.liquid' 
+                title: '%%=v(@prodName)=%%',
+                brand: '%%=v(@brand)=%%',
+                sku:'%%=v(@sku)=%%',
+                price: '%%=v(@price)=%%',
+                imageDestinationUrl: '%%=RedirectTo(@pdpImageURL)=%%',
+                imageSrc: '%%=v(@prodImgURL)=%%',
+                imageAltText: '%%=v(@prodName)=%%',
+                buttonUrl: '%%=RedirectTo(@pdpURL)=%%',
+                buttonText: 'View Product'
+            %}
+        </th>
+        <!-- Column : END -->
+        <!--%%[ Next @i]%%-->
+    </tr>
+</table>
+<!--%%[ Next @i]%%-->
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+        <td
+            style="padding: 20px 20px; font-family: Arial, sans-serif;; font-size: 15px; line-height: 24px; color: #555555;text-align: center;">
+            {% if buttonUrl and buttonText %}{% include 'button.liquid' %}{% endif %}
+        </td>
+    </tr>
+</table>

@@ -1,19 +1,15 @@
-// Server Start
-const http = require('http');
+const express = require('express');
 
-const hostname = '0.0.0.0';
-const port = process.env.PORT || 3000;
-/*let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}*/
+// Init express
+const app = express();
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello, World! How are you\n');
-});
+// Use static pages in the dist folder
+app.use('/', express.static('dist'));
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+// Init port
+const PORT = process.env.PORT || 3000;
+
+// Listen on a port
+app.listen(PORT, function () {
+    console.log(`Example app listening on port ${PORT}!`);
 });
