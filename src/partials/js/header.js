@@ -4,7 +4,7 @@ export default function template(data){
     <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
         <tr>
             <!-- Column : BEGIN -->
-            <th class="stack-column-center" style="background-color: #00319F;" valign="middle" width="50%">
+            <th class="stack-column-center" style="background-color: #000000;" valign="middle" width="50%">
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                     <tr>
                         <td class="center-on-narrow" style="text-align: left; padding: 20px;">
