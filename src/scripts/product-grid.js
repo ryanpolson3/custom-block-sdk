@@ -112,7 +112,7 @@ sdk.getData(function (data) {
 	subtitleLineHeight = data.subtitleLineHeight || '24'
 	subtitleFontWeight = data.subtitleFontWeight || '700';
 	subtitleFontColor = data.subtitleFontColor || '000000';
-	buttonText = data.buttonText || 'Discover More Deals';
+	buttonText = data.buttonText || 'Button';
     dataExtension = data.dataExtension || 'FeaturedProductsPersonalized';
     dataExtensionFallback = data.dataExtensionFallback || 'FeaturedProductsPersonalizedFallback';
     priceLabel = data.priceLabel || 'Your Price';

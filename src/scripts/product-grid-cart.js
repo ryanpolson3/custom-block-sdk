@@ -104,7 +104,7 @@ sdk.getData(function (data) {
 	subtitleLineHeight = data.subtitleLineHeight || '24'
 	subtitleFontWeight = data.subtitleFontWeight || '700';
 	subtitleFontColor = data.subtitleFontColor || '000000';
-	buttonText = data.buttonText || 'Finish My Order';
+	buttonText = data.buttonText || 'Button';
     priceLabel = data.priceLabel || 'Your Price';
     productButtonText = data.productButtonText || '';
 	showPrice = data.showPrice || true;

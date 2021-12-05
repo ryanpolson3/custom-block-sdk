@@ -72,12 +72,12 @@ function paintHtml() {
 }
 
 sdk.getData(function (data) {
-	buttonUrlSingle = data.buttonUrlSingle || 'https://www.fleetpride.com';
+	buttonUrlSingle = data.buttonUrlSingle || 'https://www.google.com';
 	buttonTextSingle = data.buttonTextSingle || 'Click Here';
-	backgroundColorSingle = data.backgroundColorSingle || 'ee3124';
-	borderColorSingle = data.borderColorSingle || 'ee3124';
+	backgroundColorSingle = data.backgroundColorSingle || 'eaf30a';
+	borderColorSingle = data.borderColorSingle || 'eaf30a';
 	fontSizeSingle = data.fontSizeSingle || '14';
-	fontColorSingle = data.fontcolorSingle || 'ffffff';
+	fontColorSingle = data.fontcolorSingle || '000000';
 	fontWeightSingle = data.fontWeidghtSingle || '700';
 	lineHeightSingle = data.lineHeightSingle || '22';
 	marginTopSingle = data.marginTopSingle || '20';

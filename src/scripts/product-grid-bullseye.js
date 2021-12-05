@@ -123,10 +123,10 @@ sdk.getData(function (data) {
 	subtitleLineHeight = data.subtitleLineHeight || '24'
 	subtitleFontWeight = data.subtitleFontWeight || '700';
 	subtitleFontColor = data.subtitleFontColor || '000000';
-	buttonText = data.buttonText || 'Discover More Deals';
+	buttonText = data.buttonText || 'Button';
 	staticDataExtension = data.staticDataExtension || 'BullseyeProductsAuthored';
 	staticDataExtensionColumn = data.staticDataExtensionColumn || 'UID';
-	staticDataExtensionColumnValue = data.staticDataExtensionColumnValue || 'Email3';
+	staticDataExtensionColumnValue = data.staticDataExtensionColumnValue || 'Email1';
     dataExtension = data.dataExtension || 'BullseyeProductsPersonalized';
     dataExtensionFallback = data.dataExtensionFallback || 'BullseyeProductsPersonalizedFallback';
     priceLabel = data.priceLabel || 'Your Price';

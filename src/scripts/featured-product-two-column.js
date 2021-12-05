@@ -120,8 +120,8 @@ sdk.getData(function (data) {
 	subtitle2FontWeight = data.subtitle2FontWeight || '300';
 	buttonText = data.buttonText || 'View Product';
 	buttonText2 = data.buttonText2 || 'View Product';
-	buttonUrl = data.buttonUrl || 'https://www.fleetpride.com';
-	buttonUrl2 = data.buttonUrl2 || 'https://www.fleetpride.com';
+	buttonUrl = data.buttonUrl || 'https://www.google.com';
+	buttonUrl2 = data.buttonUrl2 || 'https://www.google.com';
 	title = data.title || 'Lorem ipsum dolor sit amet';
 	titleFontSize = data.titleFontSize || '20';
 	titleFontWeight = data.titleFontWeight || '700';

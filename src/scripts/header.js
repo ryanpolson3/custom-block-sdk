@@ -51,8 +51,8 @@ sdk.getData(function (data) {
 
 	ctaText = data.ctaText || '';
 	ctaUrl = data.ctaUrl || '';
-	logoUrl = data.logoUrl || 'https://image.s12.sfmc-content.com/lib/fe3011727364047c731778/m/1/76435029-6997-488c-930d-d37a44f0e786.png';
-	logoLink = data.logoLink || 'https://www.shift7digital.com/';
+	logoUrl = data.logoUrl || 'https://www.shift7digital.com/';
+	logoLink = data.logoLink || 'https://image.s12.sfmc-content.com/lib/fe3011727364047c731778/m/1/76435029-6997-488c-930d-d37a44f0e786.png';
 
 	paintSettings();
 	paintHtml();
