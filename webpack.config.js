@@ -10,6 +10,7 @@ module.exports = {
 		'product-grid': './src/scripts/product-grid.js',
 		'product-grid-cart': './src/scripts/product-grid-cart.js',
 		'header': './src/scripts/header.js',
+		'footer': '.src/scripts/footer.js',
 		'icons-with-title': './src/scripts/icons-with-title.js',
 		'featured-product-two-column': './src/scripts/featured-product-two-column.js',
 		'multi-category-features': './src/scripts/multi-category-features.js',
