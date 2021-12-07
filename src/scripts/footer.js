@@ -5,7 +5,7 @@ import HEADER from '../partials/js/footer.js';
 var SDK = require('blocksdk');
 var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
 
-var ctaText, ctaUrl, logoUrl, logoLink;
+var fbUrl, fbLink, liUrl, liLink, logoUrl, logoLink;
 
 function debounce (func, wait, immediate) {
 	var timeout;
