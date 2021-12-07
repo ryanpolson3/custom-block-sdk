@@ -1,6 +1,6 @@
 require('../../node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css');
 
-import HEADER from '../partials/js/footer.js';
+import FOOTER from '../partials/js/footer.js';
 
 var SDK = require('blocksdk');
 var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
@@ -49,7 +49,7 @@ function paintHtml() {
 		liLink : liLink
 	}
 
-	sdk.setContent(HEADER(data));
+	sdk.setContent(FOOTER(data));
 	sdk.setData(data);
 }
 
