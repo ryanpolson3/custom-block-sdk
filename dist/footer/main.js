@@ -60,12 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 30);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -96,8 +95,7 @@ if(false) {
 }
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -111,8 +109,7 @@ exports.push([module.i, "/*! Lightning Design System 2.16.2 */\n@charset \"UTF-8
 
 
 /***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, exports) {
 
 /*
@@ -194,8 +191,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-
-/***/ 3:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -508,80 +504,7 @@ function updateLink(linkElement, options, obj) {
 
 
 /***/ }),
-
-/***/ 30:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_honeypot_js__ = __webpack_require__(31);
-__webpack_require__(0);
-
-
-
-var SDK = __webpack_require__(5);
-var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
-
-var honeypotUrl;
-
-function debounce (func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-}
-
-function paintSettings () {
-	document.getElementById('text-input-id-honeypot-url').value = honeypotUrl;
-}
-
-
-function paintHtml() {
-
-	honeypotUrl = document.getElementById('text-input-id-honeypot-url').value;
-
-	var data = {
-		honeypotUrl : honeypotUrl,
-	}
-
-	sdk.setContent(Object(__WEBPACK_IMPORTED_MODULE_0__partials_js_honeypot_js__["a" /* default */])(data));
-	sdk.setData(data);
-}
-
-sdk.getData(function (data) {
-	honeypotUrl = data.honeypotUrl || '';
-	paintSettings();
-	paintHtml();
-});
-
-document.getElementById('workspace').addEventListener("input", function () {
-	debounce(paintHtml, 500)();
-});
-
-/***/ }),
-
-/***/ 31:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = template;
-function template(data){
-    return `<div style="position:absolute; left:-9999px; top: -9999px;">    
-              <a href="${data.honeypotUrl}" title="" alias="" conversion="false"> </a>
-            </div>`
-}
-
-/***/ }),
-
-/***/ 4:
+/* 4 */
 /***/ (function(module, exports) {
 
 
@@ -676,8 +599,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-
-/***/ 5:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -931,6 +853,150 @@ if (true) {
 }
 
 
-/***/ })
+/***/ }),
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/******/ });
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_footer_js__ = __webpack_require__(19);
+__webpack_require__(0);
+
+
+
+var SDK = __webpack_require__(5);
+var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
+
+var fbUrl, fbLink, liUrl, liLink, logoUrl, logoLink;
+
+function debounce (func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+}
+
+function paintSettings () {
+	document.getElementById('text-input-id-logo-url').value = logoUrl;
+	document.getElementById('text-input-id-logo-link').value = logoLink;
+	document.getElementById('text-input-id-fb-logo-url').value = fbUrl;
+	document.getElementById('text-input-id-fb-logo-link').value = fbLink;
+	document.getElementById('text-input-id-li-logo-url').value = liUrl;
+	document.getElementById('text-input-id-li-logo-link').value = liLink;
+}
+
+
+function paintHtml() {
+	logoUrl = document.getElementById('text-input-id-logo-url').value;
+	logoLink = document.getElementById('text-input-id-logo-link').value;
+	fbUrl = document.getElementById('text-input-id-fb-logo-url').value;
+	fbLink = document.getElementById('text-input-id-fb-logo-link').value;
+	liUrl = document.getElementById('text-input-id-li-logo-url').value;
+	liLink = document.getElementById('text-input-id-li-logo-link').value;
+
+	var data = {
+		logoUrl : logoUrl,
+		logoLink : logoLink,
+		fbUrl : fbUrl,
+		fbLink : fbLink,
+		liUrl : liUrl,
+		liLink : liLink
+	}
+
+	sdk.setContent(Object(__WEBPACK_IMPORTED_MODULE_0__partials_js_footer_js__["a" /* default */])(data));
+	sdk.setData(data);
+}
+
+sdk.getData(function (data) {
+
+	logoUrl = data.logoUrl || 'https://image.s12.sfmc-content.com/lib/fe3011727364047c731778/m/1/76435029-6997-488c-930d-d37a44f0e786.png';
+    logoLink = data.logoLink || 'https://www.shift7digital.com/';
+    fbUrl = data.fbUrl || 'https://image.s12.sfmc-content.com/lib/fe2f11727364047c7d1373/m/1/ecdafbbc-9b7f-476d-8ad8-dfb0b3bacd40.png';
+    fbLink = data.fbLink || 'https://www.facebook.com/Shift7Digital/';
+    liUrl = data.liUrl || 'https://image.s12.sfmc-content.com/lib/fe2f11727364047c7d1373/m/1/c807327f-0143-417c-95a4-f78f08fcbf83.png';
+    liLink = data.liLink || 'https://www.linkedin.com/company/shift7digital/';
+
+	paintSettings();
+	paintHtml();
+});
+
+document.getElementById('workspace').addEventListener("input", function () {
+	debounce(paintHtml, 500)();
+});
+
+/***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = template;
+function template(data){
+    return `<!-- Email Footer : BEGIN -->
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="email-container" role="presentation"
+style="margin: auto; background-color: #000000;" width="600" class="email-footer">
+<tbody>
+    <tr>
+        <td class="center-on-narrow" style="text-align: center; padding: 25px 40px 40px;">
+            <a href="${fbLink}"
+                style="display: inline-block; color: #ffffff; font-size: 12px; line-height: 16px;"
+                target="_blank" title="LinkedIn"> <img alt="LinkedIn" height="32"
+                    src="${fbUrl}"
+                    style="display: block; padding: 0; color: black; text-decoration: none; font-family: Arial, sans-serif; font-size: 15px; line-height: 22px;"
+                    width="32"> </a>&nbsp;&nbsp;
+            <a href="${liLink}"
+                style="display: inline-block; color: #ffffff; font-size: 12px; line-height: 16px;"
+                target="_blank" title="Facebook"><img alt="Facebook" height="32"
+                    src="${liUrl}"
+                    style="display: block; padding: 0; color: black; text-decoration: none; font-family: Arial, sans-serif; font-size: 15px; line-height: 22px;"
+                    width="32"> </a>&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-bottom: 25px; text-align: center;">
+            <a href="${logoLink}"
+                style="color: #ffffff; font-size: 12px; line-height: 16px; margin: 25px 0;"
+                target="_blank"><img alt="Logo" border="0" height="33"
+                    src="${logoUrl}"
+                    style="max-width: 142px; height: auto; font-family: Arial, sans-serif;; font-size: 15px; line-height: 15px; color: #ffffff; vertical-align: top;"
+                    width="142"> </a>
+        </td>
+    </tr>
+    <tr>
+        <td
+            style="padding: 20px; font-family: Arial, sans-serif;; font-size: 12px; line-height: 15px; text-align: center; color: #ffffff;">
+            Copyright &copy; %%=FormatDate(Now(), "yyyy")=%% FleetPride, Inc.
+            <br />
+    <tr>
+        <td valign="top" class="sfmc-footer">
+            <custom type="footer" />
+        </td>
+    </tr>
+    </td>
+    </tr>
+</tbody>
+</table>
+<!-- Email Footer : END -->`
+}
+
+/***/ })
+/******/ ]);

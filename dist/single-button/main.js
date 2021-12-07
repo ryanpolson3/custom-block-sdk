@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -509,12 +509,12 @@ function updateLink(linkElement, options, obj) {
 
 /***/ }),
 
-/***/ 32:
+/***/ 34:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_single_button_js__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_single_button_js__ = __webpack_require__(35);
 __webpack_require__(0);
 
 
@@ -589,12 +589,12 @@ function paintHtml() {
 }
 
 sdk.getData(function (data) {
-	buttonUrlSingle = data.buttonUrlSingle || 'https://www.fleetpride.com';
+	buttonUrlSingle = data.buttonUrlSingle || 'https://www.google.com';
 	buttonTextSingle = data.buttonTextSingle || 'Click Here';
-	backgroundColorSingle = data.backgroundColorSingle || 'ee3124';
-	borderColorSingle = data.borderColorSingle || 'ee3124';
+	backgroundColorSingle = data.backgroundColorSingle || 'eaf30a';
+	borderColorSingle = data.borderColorSingle || 'eaf30a';
 	fontSizeSingle = data.fontSizeSingle || '14';
-	fontColorSingle = data.fontcolorSingle || 'ffffff';
+	fontColorSingle = data.fontcolorSingle || '000000';
 	fontWeightSingle = data.fontWeidghtSingle || '700';
 	lineHeightSingle = data.lineHeightSingle || '22';
 	marginTopSingle = data.marginTopSingle || '20';
@@ -611,7 +611,7 @@ document.getElementById('workspace').addEventListener("input", function () {
 
 /***/ }),
 
-/***/ 33:
+/***/ 35:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

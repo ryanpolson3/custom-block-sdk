@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -509,12 +509,12 @@ function updateLink(linkElement, options, obj) {
 
 /***/ }),
 
-/***/ 36:
+/***/ 38:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_text_block_js__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_text_block_js__ = __webpack_require__(39);
 __webpack_require__(0);
 
 
@@ -665,13 +665,11 @@ function doNullTitleBooleans(s){
 
 /***/ }),
 
-/***/ 37:
+/***/ 39:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = template;
-
-
 function template(data){
     return `
     <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">

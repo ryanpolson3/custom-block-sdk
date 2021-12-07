@@ -60,11 +60,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -95,7 +96,8 @@ if(false) {
 }
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -109,7 +111,8 @@ exports.push([module.i, "/*! Lightning Design System 2.16.2 */\n@charset \"UTF-8
 
 
 /***/ }),
-/* 2 */
+
+/***/ 2:
 /***/ (function(module, exports) {
 
 /*
@@ -191,7 +194,98 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 3 */
+
+/***/ 28:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_full_span_image_js__ = __webpack_require__(29);
+__webpack_require__(0);
+
+
+
+var SDK = __webpack_require__(5);
+var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
+
+var imageUrl, imageLink, imageAltText;
+
+function debounce (func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+}
+
+function paintSettings () {
+	document.getElementById('text-input-id-image-url').value = imageUrl;
+	document.getElementById('text-input-id-image-link').value = imageLink;
+	document.getElementById('text-input-id-image-alt-text').value = imageAltText;
+
+}
+
+
+function paintHtml() {
+
+	imageUrl = document.getElementById('text-input-id-image-url').value;
+	imageLink = document.getElementById('text-input-id-image-link').value;
+	imageAltText = document.getElementById('text-input-id-image-alt-text').value;
+
+	var data = {
+		imageUrl : imageUrl,
+		imageLink : imageLink,
+		imageAltText : imageAltText
+	}
+
+	sdk.setContent(Object(__WEBPACK_IMPORTED_MODULE_0__partials_js_full_span_image_js__["a" /* default */])(data));
+	sdk.setData(data);
+}
+
+sdk.getData(function (data) {
+	imageUrl = data.imageUrl || '';
+	imageLink = data.imageLink || '';
+	imageAltText = data.imageAltText || '';
+	paintSettings();
+	paintHtml();
+});
+
+document.getElementById('workspace').addEventListener("input", function () {
+	debounce(paintHtml, 500)();
+});
+
+/***/ }),
+
+/***/ 29:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = template;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__button_js__ = __webpack_require__(6);
+
+
+function template(data){
+    return `<table width="100%" cellspacing="0" cellpadding="0" role="presentation">
+    <tr>
+      <td align="center">
+          ${data.imageLink ? `<a href=\"${data.imageLink}\" target=\"_blank\">` : ''}
+		         <img data-assetid="3716" src="${data.imageUrl}" alt="${data.imageAltText}" width="601" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;">
+	        ${data.imageLink ? `</a>` : ''}
+      </td>
+    </tr>
+  </table>`
+}
+
+/***/ }),
+
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -504,7 +598,8 @@ function updateLink(linkElement, options, obj) {
 
 
 /***/ }),
-/* 4 */
+
+/***/ 4:
 /***/ (function(module, exports) {
 
 
@@ -599,7 +694,8 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 5 */
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -854,7 +950,8 @@ if (true) {
 
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -863,122 +960,16 @@ function template(data){
  return `<table border="0" cellpadding="0" cellspacing="0" class="center-on-narrow" role="presentation" style="${data.buttonCenter ? '' : 'float: left;'}">
         <tbody>
             <tr>
-                <td class="button-td button-td-primary" style="background: #ee3124;border-radius: 4px;"><a class="button-a button-a-primary"
+                <td class="button-td button-td-primary" style="background: #${data.backgroundColorSingle};border-radius: 4px;"><a class="button-a button-a-primary"
                         alias="${data.buttonUrl}"
                         href="${data.buttonUrl}"
-                        style="font-family: Arial, sans-serif; font-size: 14px; line-height: 22px; font-weight: bold; text-decoration: none; padding: 5px 25px; display: block; color: white; border: 1px solid #ee3124; background: #ee3124; border-radius: 4px;"
+                        style="font-family: Arial, sans-serif; font-size: 14px; line-height: 22px; font-weight: bold; text-decoration: none; padding: 5px 25px; display: block; color: #${data.fontcolorSingle}; border: 1px solid #${data.borderColorSingle}; background: #${data.backgroundColorSingle}; border-radius: 4px;"
                         target="_blank">${data.buttonText}</a></td>
             </tr>
         </tbody>
     </table>`   
 }
 
-/***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_full_span_image_js__ = __webpack_require__(27);
-__webpack_require__(0);
-
-
-
-var SDK = __webpack_require__(5);
-var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
-
-var imageUrl, imageLink, imageAltText;
-
-function debounce (func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-}
-
-function paintSettings () {
-	document.getElementById('text-input-id-image-url').value = imageUrl;
-	document.getElementById('text-input-id-image-link').value = imageLink;
-	document.getElementById('text-input-id-image-alt-text').value = imageAltText;
-
-}
-
-
-function paintHtml() {
-
-	imageUrl = document.getElementById('text-input-id-image-url').value;
-	imageLink = document.getElementById('text-input-id-image-link').value;
-	imageAltText = document.getElementById('text-input-id-image-alt-text').value;
-
-	var data = {
-		imageUrl : imageUrl,
-		imageLink : imageLink,
-		imageAltText : imageAltText
-	}
-
-	sdk.setContent(Object(__WEBPACK_IMPORTED_MODULE_0__partials_js_full_span_image_js__["a" /* default */])(data));
-	sdk.setData(data);
-}
-
-sdk.getData(function (data) {
-	imageUrl = data.imageUrl || '';
-	imageLink = data.imageLink || '';
-	imageAltText = data.imageAltText || '';
-	paintSettings();
-	paintHtml();
-});
-
-document.getElementById('workspace').addEventListener("input", function () {
-	debounce(paintHtml, 500)();
-});
-
-/***/ }),
-/* 27 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = template;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__button_js__ = __webpack_require__(6);
-
-
-function template(data){
-    return `<table width="100%" cellspacing="0" cellpadding="0" role="presentation">
-    <tr>
-      <td align="center">
-          ${data.imageLink ? `<a href=\"${data.imageLink}\" target=\"_blank\">` : ''}
-		         <img data-assetid="3716" src="${data.imageUrl}" alt="${data.imageAltText}" width="601" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;">
-	        ${data.imageLink ? `</a>` : ''}
-      </td>
-    </tr>
-  </table>`
-}
-
 /***/ })
-/******/ ]);
+
+/******/ });

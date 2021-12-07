@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -509,12 +509,12 @@ function updateLink(linkElement, options, obj) {
 
 /***/ }),
 
-/***/ 34:
+/***/ 36:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_order_again_js__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_order_again_js__ = __webpack_require__(37);
 __webpack_require__(0);
 
 
@@ -633,7 +633,7 @@ sdk.getData(function (data) {
 	subtitleLineHeight = data.subtitleLineHeight || '24'
 	subtitleFontWeight = data.subtitleFontWeight || '700';
 	subtitleFontColor = data.subtitleFontColor || '000000';
-	buttonText = data.buttonText || 'Shop Now';
+	buttonText = data.buttonText || 'Button';
     dataExtension = data.dataExtension || 'OrderAgain';
     dataExtensionFallback = data.dataExtensionFallback || 'OrderAgainFallback';
     priceLabel = data.priceLabel || 'Your Price';
@@ -702,7 +702,7 @@ function doHeader(t,s){
 
 /***/ }),
 
-/***/ 35:
+/***/ 37:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1292,10 +1292,10 @@ function template(data){
  return `<table border="0" cellpadding="0" cellspacing="0" class="center-on-narrow" role="presentation" style="${data.buttonCenter ? '' : 'float: left;'}">
         <tbody>
             <tr>
-                <td class="button-td button-td-primary" style="background: #ee3124;border-radius: 4px;"><a class="button-a button-a-primary"
+                <td class="button-td button-td-primary" style="background: #${data.backgroundColorSingle};border-radius: 4px;"><a class="button-a button-a-primary"
                         alias="${data.buttonUrl}"
                         href="${data.buttonUrl}"
-                        style="font-family: Arial, sans-serif; font-size: 14px; line-height: 22px; font-weight: bold; text-decoration: none; padding: 5px 25px; display: block; color: white; border: 1px solid #ee3124; background: #ee3124; border-radius: 4px;"
+                        style="font-family: Arial, sans-serif; font-size: 14px; line-height: 22px; font-weight: bold; text-decoration: none; padding: 5px 25px; display: block; color: #${data.fontcolorSingle}; border: 1px solid #${data.borderColorSingle}; background: #${data.backgroundColorSingle}; border-radius: 4px;"
                         target="_blank">${data.buttonText}</a></td>
             </tr>
         </tbody>

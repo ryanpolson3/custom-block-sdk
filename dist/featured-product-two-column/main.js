@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -863,10 +863,10 @@ function template(data){
  return `<table border="0" cellpadding="0" cellspacing="0" class="center-on-narrow" role="presentation" style="${data.buttonCenter ? '' : 'float: left;'}">
         <tbody>
             <tr>
-                <td class="button-td button-td-primary" style="background: #ee3124;border-radius: 4px;"><a class="button-a button-a-primary"
+                <td class="button-td button-td-primary" style="background: #${data.backgroundColorSingle};border-radius: 4px;"><a class="button-a button-a-primary"
                         alias="${data.buttonUrl}"
                         href="${data.buttonUrl}"
-                        style="font-family: Arial, sans-serif; font-size: 14px; line-height: 22px; font-weight: bold; text-decoration: none; padding: 5px 25px; display: block; color: white; border: 1px solid #ee3124; background: #ee3124; border-radius: 4px;"
+                        style="font-family: Arial, sans-serif; font-size: 14px; line-height: 22px; font-weight: bold; text-decoration: none; padding: 5px 25px; display: block; color: #${data.fontcolorSingle}; border: 1px solid #${data.borderColorSingle}; background: #${data.backgroundColorSingle}; border-radius: 4px;"
                         target="_blank">${data.buttonText}</a></td>
             </tr>
         </tbody>
@@ -887,12 +887,14 @@ function template(data){
 /* 17 */,
 /* 18 */,
 /* 19 */,
-/* 20 */
+/* 20 */,
+/* 21 */,
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_featured_product_two_column_js__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_js_featured_product_two_column_js__ = __webpack_require__(23);
 __webpack_require__(0);
 
 
@@ -1015,8 +1017,8 @@ sdk.getData(function (data) {
 	subtitle2FontWeight = data.subtitle2FontWeight || '300';
 	buttonText = data.buttonText || 'View Product';
 	buttonText2 = data.buttonText2 || 'View Product';
-	buttonUrl = data.buttonUrl || 'https://www.fleetpride.com';
-	buttonUrl2 = data.buttonUrl2 || 'https://www.fleetpride.com';
+	buttonUrl = data.buttonUrl || 'https://www.google.com';
+	buttonUrl2 = data.buttonUrl2 || 'https://www.google.com';
 	title = data.title || 'Lorem ipsum dolor sit amet';
 	titleFontSize = data.titleFontSize || '20';
 	titleFontWeight = data.titleFontWeight || '700';
@@ -1032,7 +1034,7 @@ document.getElementById('workspace').addEventListener("input", function () {
 });
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
