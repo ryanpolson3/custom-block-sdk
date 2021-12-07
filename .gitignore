@@ -1,8 +1,5 @@
-# NODE/NPM/GRUNT
-node_modules
+dist/
+node_modules/
 npm-debug.log
 .npm-debug.log
-
-# JSON
-
 package-lock.json
