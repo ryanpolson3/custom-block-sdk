@@ -5,7 +5,7 @@ style="margin: auto; background-color: #000000;" width="600" class="email-footer
 <tbody>
     <tr>
         <td class="center-on-narrow" style="text-align: center; padding: 25px 40px 40px;">
-            <a href="${fbLink}}"
+            <a href="${fbLink}"
                 style="display: inline-block; color: #ffffff; font-size: 12px; line-height: 16px;"
                 target="_blank" title="LinkedIn"> <img alt="LinkedIn" height="32"
                     src="${fbUrl}"
