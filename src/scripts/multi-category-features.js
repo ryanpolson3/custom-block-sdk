@@ -100,10 +100,10 @@ sdk.getData(function (data) {
 		categoryNameFontWeight = data.categoryNameFontWeight || '300';
 		categoryNameFontSize = data.categoryNameFontSize || '18';
 		categoryNameLineHeight = data.categoryNameLineHeight || '24';
-		imageUrl = data.imageUrl || '';
-		imageUrl2 = data.imageUrl2 || '';
-		imageUrl3 = data.imageUrl3 || '';
-		imageUrl4 = data.imageUrl4 || '';
+		imageUrl = data.imageUrl || 'https://via.placeholder.com/150';
+		imageUrl2 = data.imageUrl2 || 'https://via.placeholder.com/150';
+		imageUrl3 = data.imageUrl3 || 'https://via.placeholder.com/150';
+		imageUrl4 = data.imageUrl4 || 'https://via.placeholder.com/150';
 		categoryUrl = data.categoryUrl || '';
 		categoryUrl2 = data.categoryUrl2 || '';
 		categoryUrl3 = data.categoryUrl3 || '';
