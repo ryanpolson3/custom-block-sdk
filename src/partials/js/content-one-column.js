@@ -1,4 +1,4 @@
-import BUTTON from './single-button.js';
+import BUTTON from './button.js';
 
 export default function template(data){
     return `
