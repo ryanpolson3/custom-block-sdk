@@ -84,9 +84,9 @@ sdk.getData(function (data) {
 	iconName = data.iconName || '';
 	iconName2 = data.iconName2 || '';
 	iconName3 = data.iconName3 || '';
-	iconUrl = data.iconUrl || '';
-	iconUrl2 = data.iconUrl2 || '';
-	iconUrl3 = data.iconUrl3 || '';
+	iconUrl = data.iconUrl || 'https://via.placeholder.com/75';
+	iconUrl2 = data.iconUrl2 || 'https://via.placeholder.com/75';
+	iconUrl3 = data.iconUrl3 || 'https://via.placeholder.com/75';
 	iconLink = data.iconLink || '';
 	iconLink2 = data.iconLink2 || '';
 	iconLink3 = data.iconLink3 || '';
