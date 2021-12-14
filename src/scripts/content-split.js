@@ -77,7 +77,7 @@ sdk.getData(function (data) {
 	description = data.description || '';
 	buttonText = data.buttonText || '';
 	buttonUrl = data.buttonUrl || '';
-	imageUrl = data.imageUrl || 'https://via.placeholder.com/260x173';
+	imageUrl = data.imageUrl || 'https://via.placeholder.com/260x220';
 	imageDestinationUrl = data.imageDestinationUrl || '';
 	imageAltText = data.imageAltText || '';
 	imageAlignmentRight = data.imageAlignmentRight || false;
