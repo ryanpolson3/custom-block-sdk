@@ -55,12 +55,12 @@ function paintHtml() {
 
 sdk.getData(function (data) {
 
-	logoUrl = data.logoUrl || 'https://image.s12.sfmc-content.com/lib/fe3011727364047c731778/m/1/76435029-6997-488c-930d-d37a44f0e786.png';
-    logoLink = data.logoLink || 'https://www.shift7digital.com/';
-    fbUrl = data.fbUrl || 'https://image.s12.sfmc-content.com/lib/fe2f11727364047c7d1373/m/1/ecdafbbc-9b7f-476d-8ad8-dfb0b3bacd40.png';
-    fbLink = data.fbLink || 'https://www.facebook.com/Shift7Digital/';
-    liUrl = data.liUrl || 'https://image.s12.sfmc-content.com/lib/fe2f11727364047c7d1373/m/1/c807327f-0143-417c-95a4-f78f08fcbf83.png';
-    liLink = data.liLink || 'https://www.linkedin.com/company/shift7digital/';
+	logoUrl = data.logoUrl || '';
+    logoLink = data.logoLink || '';
+    fbUrl = data.fbUrl || '';
+    fbLink = data.fbLink || '';
+    liUrl = data.liUrl || '';
+    liLink = data.liLink || '';
 
 	paintSettings();
 	paintHtml();
