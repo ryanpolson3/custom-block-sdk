@@ -17,11 +17,10 @@ export default function template(data) {
                                     <tbody>
                                         <tr>
                                             <td dir="ltr" style="padding: 0; overflow: hidden;" valign="top">
-                                                ${data.imageDestinationUrl ? 
-                                                    `<a href=\"${data.imageDestinationUrl}\" target=\"_blank\">` : "" }
-                                                        <img width="100%" alt="alt_text" border="0" class="center-on-narrow" alt="${data.imageAltText}" src="${data.imageUrl}"style="background: ${data.backgroundColor}; font-family: Arial, sans-serif; font-size: 15px; line-height: 15px; color: ${data.titleColor}; display: block; width:100%;">
-                                                        ${data.imageDestinationUrl ? 
-                                                    "</a>" : "" }
+
+                                                <!-- Left Column -->
+                                                <h3>Hello</h3>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -37,18 +36,9 @@ export default function template(data) {
                                         <tr>
                                             <td class="" dir="ltr" style="font-family: Arial, sans-serif; font-size: 15px; line-height: 20px; color: #c7c7c7; padding: 30px; text-align: left;" valign="top">
 
-                                                <h3 style="font-size: 24px; line-height: 28px; font-family: Arial, sans-serif; color:${data.titleColor}; margin: 5px 0 10px 0;">
-                                                    ${data.title}
-                                                </h3>
+                                            <!-- Right Column -->
+                                            <h3>World</h3>
 
-                                                <p style="font-size: 18px; line-height: 24px; font-family: Arial, sans-serif; color:${data.subtitleColor }; font-weight: bold; margin: 0 0 15px;">
-                                                    ${data.subtitle}
-                                                </p>
-
-                                                <p style="font-size: 14px; line-height: 20px; font-family: Arial, sans-serif; color:${data.titleColor}; margin: 0 0 25px;">
-                                                    ${data.description}
-                                                </p>
-                                                ${data.buttonUrl && data.buttonText ? BUTTON(data) : "" }
                                             </td>
                                         </tr>
                                     </tbody>
