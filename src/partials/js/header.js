@@ -15,7 +15,7 @@ export default function template(data){
             </th>
             <!-- Column : END -->
         </tr>
-    </table><span style="padding-bottom: 0px;"></span>
+    </table><span style="padding-bottom: 5px;"></span>
     <!-- Email Header : END -->`
 
 }
