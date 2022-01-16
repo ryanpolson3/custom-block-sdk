@@ -9,7 +9,7 @@ export default function template(data) {
     <td>
 
       <!--[if (gte mso 9)|(IE)]><table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="width: 600px;"><tr><td align="center" valign="top" width="100%"><![endif]-->
-      <table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:600px; background-color:#ffffff;">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:600px;">
         <tr>
           <td align="center" valign="top" style="padding-top: 25px;padding-bottom: 0px;padding-left: 15px;padding-right: 15px;">
 
