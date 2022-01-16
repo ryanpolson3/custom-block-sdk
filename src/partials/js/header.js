@@ -15,7 +15,14 @@ export default function template(data){
             </th>
             <!-- Column : END -->
         </tr>
-    </table><span style="padding-bottom: 5px;"></span>
+    </table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%; background: #ffffff;" width="100%">
+        <tr>
+            <td align="center" style="background-color: #ffffff; padding: 0 0 5px 0;" valign="top">
+                <span style="color: #ffffff;">Spacer</span>
+            </td>
+        </tr>
+    </table>
     <!-- Email Header : END -->`
 
 }
