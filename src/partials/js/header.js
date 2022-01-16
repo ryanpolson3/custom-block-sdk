@@ -18,8 +18,8 @@ export default function template(data){
     </table>
     <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%; background: #ffffff;" width="100%">
         <tr>
-            <td align="center" style="background-color: #ffffff; border: 0; margin: 0; padding: 0;" valign="top">
-                <span style="color: #ffffff;">&zwnj;</span>
+            <td align="center" style="background-color: #ffffff; padding: 0;" valign="top">
+                <div> style="color: #ffffff; line-height: 5px !important">&zwnj;</div>
             </td>
         </tr>
     </table>
