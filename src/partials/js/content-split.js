@@ -4,7 +4,7 @@ export default function template(data) {
   return `
   <!-- 1 COLUMN GRID - HORIZONTAL : START -->
 <!--[if (gte mso 9)|(IE)]><table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td align="center" valign="top" width="100%"><![endif]-->
-<table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="background-color: #ffffff;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="background-color: #000000;">
   <tr>
     <td>
 
