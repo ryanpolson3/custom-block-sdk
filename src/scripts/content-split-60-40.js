@@ -1,6 +1,6 @@
 require('../../node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css');
 
-import CONTENT_SPLIT from '../partials/js/content-split.js';
+import CONTENT_SPLIT from '../partials/js/content-split-60-40.js';
 
 var SDK = require('blocksdk');
 var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy

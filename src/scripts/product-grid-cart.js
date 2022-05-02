@@ -5,7 +5,7 @@ import TEMPLATE from '../partials/js/product-grid-cart.js';
 var SDK = require('blocksdk');
 var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
 
-var sequenceNumber, utmContentId, title, titleFontSize, titleFontWeight, titleLineHeight, titleFontColor, subtitle, subtitleFontSize, subtitleFontWeight, subtitleLineHeight, subtitleFontColor, buttonText, dataExtension, dataExtensionFallback, priceLabel, productButtonText, productCount, cloudPageId, utmContentId, showPrice, nullTitle, nullSubtitle, noHeader, description, descriptionFontSize, descriptionLineHeight, descriptionFontWeight, descriptionFontColor;
+var sequenceNumber, utmContentId, title, titleFontSize, titleFontWeight, titleLineHeight, titleFontColor, subtitle, subtitleFontSize, subtitleFontWeight, subtitleLineHeight, subtitleFontColor, buttonText, dataExtension, dataExtensionFallback, priceLabel, productButtonText, productCount, cloudPageId, utmContentId, showPrice, nullTitle, nullSubtitle, noHeader, description, descriptionFontSize, descriptionLineHeight, descriptionFontWeight, descriptionFontColor, padTop, padBottom;
 
 function debounce (func, wait, immediate) {
 	var timeout;
@@ -39,6 +39,8 @@ function paintSettings () {
 	document.getElementById('checkbox-show-price').checked = showPrice;
 	document.getElementById('text-input-id-utm-content-id').value = utmContentId;
 	document.getElementById('select-input-id-product-count').value = sequenceNumber;
+	document.getElementById('text-input-id-padding-top').value = padTop;
+	document.getElementById('text-input-id-padding-bottom').value = padBottom;
 	
 }
 
@@ -63,6 +65,8 @@ function paintHtml() {
 	noHeader = doHeader(nullTitle, nullSubtitle);
 	utmContentId = document.getElementById('text-input-id-utm-content-id').value;
 	sequenceNumber = document.getElementById('select-input-id-product-count').value;
+	padTop = document.getElementById('text-input-id-padding-top').value;
+	padBottom = document.getElementById('text-input-id-padding-bottom').value;
 
 
 	var data = {
@@ -85,6 +89,8 @@ function paintHtml() {
 		noHeader: noHeader,
 		utmContentId: utmContentId,
 		sequenceNumber: sequenceNumber,
+		padTop : padTop,
+		padBottom : padBottom
 	}
 
 	sdk.setContent(TEMPLATE(data));
@@ -104,12 +110,14 @@ sdk.getData(function (data) {
 	subtitleLineHeight = data.subtitleLineHeight || '24'
 	subtitleFontWeight = data.subtitleFontWeight || '700';
 	subtitleFontColor = data.subtitleFontColor || '000000';
-	buttonText = data.buttonText || 'Button';
+	buttonText = data.buttonText || 'Finish My Order';
     priceLabel = data.priceLabel || 'Your Price';
     productButtonText = data.productButtonText || '';
 	showPrice = data.showPrice || true;
-	utmContentId = data.utmContentId || 'bullseye';
+	utmContentId = data.utmContentId || '';
 	sequenceNumber = data.sequenceNumber || '1';    
+	padTop = data.padTop || '0';    
+	padBottom = data.padBottom || '0';  
 	paintSettings();
 	paintHtml();
 });

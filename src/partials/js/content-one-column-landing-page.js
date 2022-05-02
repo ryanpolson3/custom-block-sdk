@@ -4,9 +4,9 @@ export default function template(data){
     return `<!-- 1 Column Text with Image : BEGIN -->
     <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
       <tr>
-        <td dir="ltr" style="padding: ${data.imageUrl ? '20' : '0'}px 20px;" valign="top">
+        <td dir="ltr" style="padding: ${data.imageUrl ? '20' : '0'}px 20px; text-align:center;" valign="top">
         ${data.imageDestinationUrl ? `<a href=\"${data.imageDestinationUrl}\" target=\"_blank\">` : ''}
-        ${data.imageUrl ? `<img alt="${data.imageAltText}" border="0" class="center-on-narrow" height="230" src="${data.imageUrl}" style="height: auto; background: #dddddd; font-family: Arial, sans-serif; font-size: 15px; line-height: 15px; color: #555555;" width="100%">` : ''}
+        ${data.imageUrl ? `<img alt="${data.imageAltText}" border="0" class="center-on-narrow" height="${data.imageHeight}px" width="${data.imageWidth}px" src="${data.imageUrl}" style="background: #dddddd; font-family: Arial, sans-serif; font-size: 15px; line-height: 15px; color: #555555;" width="100%">` : ''}
         ${data.imageDestinationUrl ? `</a>` : ''}
       </td>
       </tr>

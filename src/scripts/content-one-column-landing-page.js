@@ -1,11 +1,11 @@
 require('../../node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css');
 
-import TEMPLATE from '../partials/js/product-grid.js';
+import CONTENT_ONE_COLUMN_LANDING_PAGE from '../partials/js/content-one-column-landing-page.js';
 
 var SDK = require('blocksdk');
 var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
 
-var title, titleFontSize, titleFontWeight, titleLineHeight, titleFontColor, subtitle, subtitleFontSize, subtitleFontWeight, subtitleLineHeight, subtitleFontColor, buttonText, dataExtension, dataExtensionFallback, priceLabel, productButtonText, sequenceNumber, cloudPageId, utmContentId, showPrice, nullTitle, nullSubtitle, noHeader, description, descriptionFontSize, descriptionLineHeight, descriptionFontWeight, descriptionFontColor, descriptionPadBottom, padTop, padBottom;
+var buttonCenter, title, titleFontSize, titleFontWeight, titleLineHeight, titleFontColor, subtitle, subtitleFontSize, subtitleFontWeight, subtitleLineHeight, subtitleFontColor, description, descriptionFontSize, descriptionLineHeight, descriptionFontWeight, descriptionFontColor, buttonUrl, buttonText, imageUrl, imageHeight, imageWidth, imageDestinationUrl, imageAltText, nullTitle, nullSubtitle, nullDescription, noHeader, descriptionPaddingBottom, componentPaddingBottom, componentPaddingTop, subtitlePaddingBottom;
 
 function debounce (func, wait, immediate) {
 	var timeout;
@@ -23,6 +23,7 @@ function debounce (func, wait, immediate) {
 }
 
 function paintSettings () {
+	document.getElementById('checkbox-center-button').checked = buttonCenter;
 	document.getElementById('text-input-id-title').value = title;
 	document.getElementById('text-input-id-title-font-size').value = titleFontSize;
 	document.getElementById('text-input-id-title-font-weight').value = titleFontWeight;
@@ -33,28 +34,27 @@ function paintSettings () {
 	document.getElementById('text-input-id-subtitle-line-height').value = subtitleLineHeight;
 	document.getElementById('text-input-id-subtitle-font-weight').value = subtitleFontWeight;
 	document.getElementById('text-input-id-subtitle-font-color').value = subtitleFontColor;
-	document.getElementById('text-input-id-2').value = buttonText;
-	document.getElementById('text-input-id-data-extension').value = dataExtension;
-	document.getElementById('text-input-id-data-extension-fallback').value = dataExtensionFallback;
-	document.getElementById('text-input-id-price-label').value = priceLabel;
-	document.getElementById('text-input-id-product-button-text').value = productButtonText;
-    document.getElementById('text-input-id-cloud-page-id').value = cloudPageId;
-    document.getElementById('text-input-id-utm-content-id').value = utmContentId;
-	document.getElementById('checkbox-show-price').checked = showPrice;
-	document.getElementById('select-input-id-product-count').value = sequenceNumber;
 	document.getElementById('textarea-id-description').value = description;
 	document.getElementById('text-input-id-description-font-size').value = descriptionFontSize;
 	document.getElementById('text-input-id-description-line-height').value = descriptionLineHeight;
 	document.getElementById('text-input-id-description-font-weight').value = descriptionFontWeight;
 	document.getElementById('text-input-id-description-font-color').value = descriptionFontColor;
-	document.getElementById('text-input-id-description-padding-bottom').value = descriptionPadBottom;
-	document.getElementById('text-input-id-padding-top').value = padTop;
-	document.getElementById('text-input-id-padding-bottom').value = padBottom;
-  
+	document.getElementById('text-input-id-button-text').value = buttonText;
+	document.getElementById('text-input-id-button-url').value = buttonUrl;
+	document.getElementById('text-input-id-image-url').value = imageUrl;
+	document.getElementById('text-input-id-image-link').value = imageDestinationUrl;
+	document.getElementById('text-input-id-image-height').value = imageHeight;
+	document.getElementById('text-input-id-image-width').value = imageWidth;
+	document.getElementById('text-input-id-image-alt-text').value = imageAltText;
+	document.getElementById('text-input-id-padding-bottom').value = descriptionPaddingBottom;
+	document.getElementById('text-input-id-component-padding-bottom').value = componentPaddingBottom;
+	document.getElementById('text-input-id-component-padding-top').value = componentPaddingTop;
+	document.getElementById('text-input-id-subtitle-padding-bottom').value = subtitlePaddingBottom;
 }
 
 
 function paintHtml() {
+	buttonCenter = document.getElementById('checkbox-center-button').checked;
 	title = document.getElementById('text-input-id-title').value;
 	nullTitle = doNullTitleBooleans(title);
 	titleFontSize = document.getElementById('text-input-id-title-font-size').value;
@@ -67,27 +67,27 @@ function paintHtml() {
 	subtitleLineHeight = document.getElementById('text-input-id-subtitle-line-height').value;
 	subtitleFontWeight = document.getElementById('text-input-id-subtitle-font-weight').value;
 	subtitleFontColor = document.getElementById('text-input-id-subtitle-font-color').value;
-	buttonText = document.getElementById('text-input-id-2').value;
-	dataExtension = document.getElementById('text-input-id-data-extension').value;
-	dataExtensionFallback = document.getElementById('text-input-id-data-extension-fallback').value;
-    priceLabel = document.getElementById('text-input-id-price-label').value;
-    productButtonText = document.getElementById('text-input-id-product-button-text').value;
-    cloudPageId = document.getElementById('text-input-id-cloud-page-id').value;
-    utmContentId = document.getElementById('text-input-id-utm-content-id').value;
-	showPrice = document.getElementById('checkbox-show-price').checked;
-	sequenceNumber = document.getElementById('select-input-id-product-count').value;
-	noHeader = doHeader(nullTitle, nullSubtitle);
-	description = document.getElementById('textarea-id-description').value;
+	description = formatTextArea(document.getElementById('textarea-id-description').value);
+	nullDescription = doNullTitleBooleans(description);
 	descriptionFontSize = document.getElementById('text-input-id-description-font-size').value;
 	descriptionLineHeight = document.getElementById('text-input-id-description-line-height').value;
 	descriptionFontWeight = document.getElementById('text-input-id-description-font-weight').value;
 	descriptionFontColor = document.getElementById('text-input-id-description-font-color').value;
-	descriptionPadBottom = document.getElementById('text-input-id-description-padding-bottom').value;
-	padTop = document.getElementById('text-input-id-padding-top').value;
-	padBottom = document.getElementById('text-input-id-padding-bottom').value;
-
+	buttonText = document.getElementById('text-input-id-button-text').value;
+	buttonUrl = document.getElementById('text-input-id-button-url').value;
+	imageUrl = document.getElementById('text-input-id-image-url').value;
+	imageDestinationUrl = document.getElementById('text-input-id-image-link').value;
+	imageAltText = document.getElementById('text-input-id-image-alt-text').value;
+	imageHeight = document.getElementById('text-input-id-image-height').value;
+	imageWidth = document.getElementById('text-input-id-image-width').value;
+	noHeader = doHeader(nullTitle, nullSubtitle);
+	descriptionPaddingBottom = document.getElementById('text-input-id-padding-bottom').value;
+	componentPaddingBottom = document.getElementById('text-input-id-component-padding-bottom').value;
+	componentPaddingTop = document.getElementById('text-input-id-component-padding-top').value;
+	subtitlePaddingBottom = document.getElementById('text-input-id-subtitle-padding-bottom').value;
 
 	var data = {
+		buttonCenter: buttonCenter,
 		title: title,
 		nullTitle: nullTitle,
 		titleFontSize: titleFontSize,
@@ -100,27 +100,27 @@ function paintHtml() {
 		subtitleLineHeight: subtitleLineHeight,
 		subtitleFontWeight: subtitleFontWeight,
 		subtitleFontColor: subtitleFontColor,
+		description: description,
+		nullDescription: nullDescription,
+		descriptionFontSize: descriptionFontSize,
+		descriptionLineHeight: descriptionLineHeight, 
+		descriptionFontWeight: descriptionFontWeight,
+		descriptionFontColor: descriptionFontColor,
 		buttonText: buttonText,
-        dataExtension: dataExtension,
-        dataExtensionFallback: dataExtensionFallback,
-        priceLabel: priceLabel,
-        productButtonText: productButtonText,
-        cloudPageId: cloudPageId,
-        utmContentId: utmContentId,
-		showPrice: showPrice,
+		buttonUrl: buttonUrl,
+		imageUrl: imageUrl,
+		imageHeight: imageHeight,
+		imageWidth: imageWidth,
+		imageDestinationUrl: imageDestinationUrl,
+		imageAltText: imageAltText,
 		noHeader: noHeader,
-		sequenceNumber: sequenceNumber,
-		description : description,
-		descriptionFontSize : descriptionFontSize,
-		descriptionFontColor : descriptionFontColor,
-		descriptionFontWeight : descriptionFontWeight,
-		descriptionLineHeight : descriptionLineHeight,
-		descriptionPadBottom : descriptionPadBottom,
-		padTop : padTop,
-		padBottom : padBottom
+		descriptionPaddingBottom: descriptionPaddingBottom,
+		componentPaddingBottom: componentPaddingBottom,
+		componentPaddingTop: componentPaddingTop,
+		subtitlePaddingBottom: subtitlePaddingBottom
 	}
 
-	sdk.setContent(TEMPLATE(data));
+	sdk.setContent(CONTENT_ONE_COLUMN_LANDING_PAGE(data));
 	sdk.setData(data);
 }
 
@@ -137,25 +137,24 @@ sdk.getData(function (data) {
 	subtitleLineHeight = data.subtitleLineHeight || '24'
 	subtitleFontWeight = data.subtitleFontWeight || '700';
 	subtitleFontColor = data.subtitleFontColor || '000000';
-	//buttonText = data.buttonText || 'Discover More Deals';
+	description = doTitle(data.description, data.nullDescription).title;
+	nullDescription = doTitle(data.description, data.nullSubscription).nullTitle;
+	descriptionFontSize = data.descriptionFontSize || '16';
+	descriptionLineHeight = data.descriptionLineHeight || '24';
+	descriptionFontWeight = data.descriptionFontWeight || '100';
+	descriptionFontColor = data.descriptionFontColor || '000000';
 	buttonText = data.buttonText || '';
-    dataExtension = data.dataExtension || 'FeaturedProductsPersonalized';
-    dataExtensionFallback = data.dataExtensionFallback || 'FeaturedProductsPersonalizedFallback';
-    priceLabel = data.priceLabel || 'Your Price';
-    productButtonText = data.productButtonText || 'View Product';
-    cloudPageId = data.cloudPageId || '';
-    utmContentId = data.utmContentId || '';
-	showPrice = data.showPrice || false;
-	sequenceNumber = data.sequenceNumber || '1';    
-	description = data.description || '';    
-	descriptionFontColor = data.descriptionFontColor || '000000';    
-	descriptionFontSize = data.descriptionFontSize || '16';    
-	descriptionFontWeight = data.descriptionFontWeight || '100';    
-	descriptionLineHeight = data.descriptionLineHeight || '24';    
-	descriptionPadBottom = data.descriptionPadBottom || '30';
-	padTop = data.padTop || '0';    
-	padBottom = data.padBottom || '0';    
-
+	buttonUrl = data.buttonUrl || '';
+	buttonCenter = data.buttonCenter || false; 
+	imageUrl = data.imageUrl || '';
+	imageDestinationUrl = data.imageDestinationUrl || '';
+	imageAltText = data.imageAltText || '';
+	imageHeight = data.imageHeight || '230';
+	imageWidth = data.imageWidth || '230';
+	descriptionPaddingBottom = data.descriptionPaddingBottom || '30';
+	componentPaddingBottom = data.componentPaddingBottom || '20';
+	componentPaddingTop = data.componentPaddingTop || '20';
+	subtitlePaddingBottom = data.subtitlePaddingBottom || '15';
 	paintSettings();
 	paintHtml();
 });
@@ -163,6 +162,32 @@ sdk.getData(function (data) {
 document.getElementById('workspace').addEventListener("input", function () {
 	debounce(paintHtml, 500)();
 });
+
+var area = container.querySelector('textarea');
+if (area.addEventListener) {
+	area.addEventListener("input", function () {
+		debounce(paintHtml, 500)();
+	});
+}
+
+function nl2br (str, is_xhtml) {
+
+	var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br ' + '/>' : '<br>'; 
+  
+	return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+  }
+
+function formatTextArea (str) {
+	console.log ('String is '+str);
+	let returnString = '';
+	const tempString = str.replaceAll('<li>', '<li style= "font-size:'+descriptionFontSize+'px; color:#'+descriptionFontColor+'; font-weight:'+descriptionFontWeight+';">');
+	returnString = tempString;
+	if(!tempString.includes('<ul>')){
+	returnString = tempString.replace('<li', '<ul><li');
+	}
+	console.log('returnString is '+returnString);
+	return returnString;
+}
 
 function doTitle(t, f) {
 

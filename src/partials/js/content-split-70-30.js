@@ -13,7 +13,7 @@ export default function template(data) {
                             <tbody>
                                 <tr>
                                     <!-- Column : BEGIN -->
-                                    <th class="stack-column-center" width="50%" style="background-color: #${data.backgroundColor};">
+                                    <th class="stack-column-center" width="70%" style="background-color: #${data.backgroundColor};">
                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                                             <tbody>
                                                 <tr>
@@ -45,7 +45,7 @@ export default function template(data) {
                                     </th>
                                     <!-- Column : END -->
                                     <!-- Column : BEGIN -->
-                                    <th class="stack-column-center" width="50%" style="background-color: #${data.backgroundColor2};">
+                                    <th class="stack-column-center" width="30%" style="background-color: #${data.backgroundColor2};">
                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                                             <tbody>
                                                 <tr>

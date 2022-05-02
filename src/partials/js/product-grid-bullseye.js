@@ -2,7 +2,11 @@ import BUTTON from './button.js';
 import PRODUCT_CARD from './product-grid-card.js';
 
 export default function template(data){
-    return `<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    return `
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+        <td style="padding-top: ${data.padTop}px; padding-bottom: ${data.padBottom}px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
             <tr>
             <td style="padding: ${data.noHeader ? '0' : '20'}px 30px; font-family: Arial, sans-serif;; font-size: 15px; line-height: ${data.noHeader ? '0' : '24'}px; color: #555555;">
             <h3 style="font-size:${data.titleFontSize}px; font-weight:${data.titleFontWeight}; line-height: ${data.title ? data.titleLineHeight : '0'}px; font-family: Arial, sans-serif; color:#${data.titleFontColor}; margin: 0px 0 ${data.title ? '10' : '0'}px 0;">${data.title}</h3>
@@ -303,6 +307,9 @@ export default function template(data){
                         buttonUrl: '%%=RedirectTo(@cpURL)=%%'
                     }) : '' }
                 </td>
+            </tr>
+        </table>
+        </td>
             </tr>
         </table>`
 }

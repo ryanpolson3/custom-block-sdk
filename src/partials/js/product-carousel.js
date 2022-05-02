@@ -9,7 +9,8 @@ export default function template(data){
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <!--%%[ 
-                    var @rows, @row, @rowCount, @i, @email, @contactId, @tempContactId, @subId, @len
+                    var @rows, @row, @rowCount, @i, @email, @contactId, @tempContactId, @subId, @len, @emailName
+                        set @emailName = QueryParameter('utm_campaign')
                         set @tempContactId = AttributeValue("_subscriberkey")
                         set @subId = Substring(@tempContactId,1,3)
                             IF IndexOf(@tempContactId,"@") > 0 THEN
@@ -49,7 +50,7 @@ export default function template(data){
                         ELSE
                         set @price = concat("See your price")
                         ENDIF
-                        set @prodRedirectURL = RedirectTo(CloudPagesURL(319,'whereto',@prodURL))
+                        set @prodRedirectURL = RedirectTo(CloudPagesURL(319,'whereto',@prodURL,'emailName',@emailName))
                         
             ]%%-->
             <div class="swiper-slide">
@@ -63,7 +64,9 @@ export default function template(data){
                         <div class="product-price">
                             <a style="${data.showPriceStyle}" href="%%=v(@prodRedirectURL)=%%"><span class="price-title">${data.priceLabel}</span><span class="price">%%=v(@price)=%%</span></a>
                         </div>
-                        <a href="%%=v(@prodRedirectURL)=%%"> </a><a class="product-button" href="%%=v(@prodRedirectURL)=%%" target="_blank">${data.productButtonText}</a>
+                        <div class="button-td button-td-primary" style="float: left; background: #ee3124;border-radius: 4px;">
+                        <a href="%%=v(@prodRedirectURL)=%%"> </a><a class="button-a button-a-primary" style="font-family: Mukta, Arial, sans-serif; font-size: 14px; line-height: 22px; font-weight: bold; text-decoration: none; padding: 5px 25px; display: block; color: white; border: 1px solid #ee3124; background: #ee3124; border-radius: 4px;" href="%%=v(@prodRedirectURL)=%%" target="_blank">${data.productButtonText}</a>
+                        </div>
                     </div>
                 </div>
             </div>

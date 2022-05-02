@@ -1,6 +1,6 @@
 require('../../node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css');
 
-import FULL_SPAN_IMAGE from '../partials/js/full-span-image.js';
+import FULL_SPAN_IMAGE from '../partials/js/full-span-image-600x200.js';
 
 var SDK = require('blocksdk');
 var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
@@ -39,6 +39,7 @@ function paintHtml() {
 	imageAltText = document.getElementById('text-input-id-image-alt-text').value;
 	padTop = document.getElementById('text-input-id-padding-top').value;
 	padBottom = document.getElementById('text-input-id-padding-bottom').value;
+
 
 	var data = {
 		imageUrl : imageUrl,

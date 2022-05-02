@@ -5,7 +5,7 @@ import PRODUCT_GRID_BULLSEYE from '../partials/js/product-grid-bullseye.js';
 var SDK = require('blocksdk');
 var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
 
-var title, titleFontSize, titleFontWeight, titleLineHeight, titleFontColor, subtitleFontSize, subtitleFontWeight, subtitleLineHeight, subtitleFontColor, buttonText, staticDataExtension, staticDataExtensionColumn, staticDataExtensionColumnValue, dataExtension, dataExtensionFallback, priceLabel, productButtonText, staticProductCount, cloudPageId, utmContentId, showPrice, sequenceNumber, subtitle, nullTitle, nullSubtitle, noHeader;
+var title, titleFontSize, titleFontWeight, titleLineHeight, titleFontColor, subtitleFontSize, subtitleFontWeight, subtitleLineHeight, subtitleFontColor, buttonText, staticDataExtension, staticDataExtensionColumn, staticDataExtensionColumnValue, dataExtension, dataExtensionFallback, priceLabel, productButtonText, staticProductCount, cloudPageId, utmContentId, showPrice, sequenceNumber, subtitle, nullTitle, nullSubtitle, noHeader, padTop, padBottom;
 
 function debounce (func, wait, immediate) {
 	var timeout;
@@ -45,6 +45,8 @@ function paintSettings () {
 	document.getElementById('text-input-id-static-product-count').value = staticProductCount;
 	document.getElementById('checkbox-show-price').checked = showPrice;
 	document.getElementById('select-input-id-product-count').value = sequenceNumber;
+	document.getElementById('text-input-id-padding-top').value = padTop;
+	document.getElementById('text-input-id-padding-bottom').value = padBottom;
 }
 
 
@@ -76,6 +78,8 @@ function paintHtml() {
 	sequenceNumber = document.getElementById('select-input-id-product-count').value;
 	console.log('Sequence Number '+sequenceNumber);
 	noHeader = doHeader(nullTitle, nullSubtitle);
+	padTop = document.getElementById('text-input-id-padding-top').value;
+	padBottom = document.getElementById('text-input-id-padding-bottom').value;
 
 	var data = {
 		title: title,
@@ -103,7 +107,9 @@ function paintHtml() {
 		staticProductCount : staticProductCount,
 		showPrice: showPrice,
 		noHeader: noHeader,
-		sequenceNumber: sequenceNumber
+		sequenceNumber: sequenceNumber,
+		padTop : padTop,
+		padBottom : padBottom
 	}
 
 	sdk.setContent(PRODUCT_GRID_BULLSEYE(data));
@@ -123,19 +129,21 @@ sdk.getData(function (data) {
 	subtitleLineHeight = data.subtitleLineHeight || '24'
 	subtitleFontWeight = data.subtitleFontWeight || '700';
 	subtitleFontColor = data.subtitleFontColor || '000000';
-	buttonText = data.buttonText || 'Button';
+	buttonText = data.buttonText || 'Discover More Deals';
 	staticDataExtension = data.staticDataExtension || 'BullseyeProductsAuthored';
 	staticDataExtensionColumn = data.staticDataExtensionColumn || 'UID';
-	staticDataExtensionColumnValue = data.staticDataExtensionColumnValue || 'Email1';
+	staticDataExtensionColumnValue = data.staticDataExtensionColumnValue || 'Email3';
     dataExtension = data.dataExtension || 'BullseyeProductsPersonalized';
     dataExtensionFallback = data.dataExtensionFallback || 'BullseyeProductsPersonalizedFallback';
     priceLabel = data.priceLabel || 'Your Price';
     productButtonText = data.productButtonText || 'View Product';
-    cloudPageId = data.cloudPageId || '324';
+    cloudPageId = data.cloudPageId || '';
     utmContentId = data.utmContentId || 'bullseye';
 	staticProductCount = data.staticProductCount || '2';
 	showPrice = data.showPrice || false;
-	sequenceNumber = data.sequenceNumber || '1';    
+	sequenceNumber = data.sequenceNumber || '1';   
+	padTop = data.padTop || '0';    
+	padBottom = data.padBottom || '0';   
 	paintSettings();
 	paintHtml();
 });
